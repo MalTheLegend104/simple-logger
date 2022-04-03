@@ -112,4 +112,4 @@ Example of `Logger.errorPane()`:
 ## JavaDocs
 The javadocs can be downloaded in this projects [releases.](https://github.com/MalTheLegend104/simple-logger/releases/latest)
 > Every single method and field that is usable is documented.  
-If you wish to add to this project, please do me a favor and add javadocs for anything you implement.
+> If you wish to add to this project, please do me a favor and add javadocs for anything you implement.
