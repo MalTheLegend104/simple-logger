@@ -98,7 +98,7 @@ public class Logger {
     private static final JFrame messagePaneParent = new JFrame();
 
     // Instance variables
-    private static int timeFormat;
+    private static byte timeFormat;
     private static DateTimeFormatter dtf;
 
     // Things that need to be properly initialized.
