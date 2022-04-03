@@ -101,7 +101,7 @@ public static void main(String[] args) {
 
 ## Example Output
 Example of all logger types:  
-![logger types](https://raw.githubusercontent.com/MalTheLegend104/simple-logger/main/readme-assets/log_types.png);
+![logger types](https://raw.githubusercontent.com/MalTheLegend104/simple-logger/main/readme-assets/log_types.png)
 
 Example of a log file:  
 ![log file](https://raw.githubusercontent.com/MalTheLegend104/simple-logger/main/readme-assets/logger-logconsole.jpg)  
