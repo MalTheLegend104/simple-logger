@@ -1,37 +1,115 @@
-## Welcome to GitHub Pages
+# Simple Logger
+This is meant to be a general use, easy to use logger.
+This was mainly meant to just be used by me and a few fellow programmers,
+but this is a fairly lightweight logger that I wanted to make public.
 
-You can use the [editor on GitHub](https://github.com/MalTheLegend104/simple-logger/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+>### Information
+>This logger has no dependencies and was built using
+[Java 18](https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html). <br>
+This could very likely be implemented, without error, in older java versions, although nothing is guaranteed.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Usage
+Methods and constructors not detailed below can be found in the [javadocs.](#javadocs)
 
-### Markdown
+Most common usages can be found here:
+```java
+public static void main(String[] args) {
+        /*
+         * General logging & creating log files.
+         * You only need a logger object if you wish to log to a file.
+         */
+        // You can specify what way you want the time to appear in console.
+        Logger.setDateTimeFormat(Logger.HOUR_MINUTE_SECOND_12H);
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+        // All 4 types available to log
+        Logger.warn("this is a warning");
+        Logger.info("this is an info message");
+        Logger.log("this is a message");
+        Logger.err("this is an error");
+        
+        // You can set the colors for each individually.
+        Logger.setWarnColor(Logger.CONSOLE_COLOR_BLACK_BRIGHT);     // Default is Bright Yellow
+        Logger.setInfoColor(Logger.CONSOLE_COLOR_BLUE);             // Default is Bright Cyan
+        Logger.setNormalColor(Logger.CONSOLE_COLOR_GREEN_BRIGHT);   // Default is Bright White
+        Logger.setErrorColor(Logger.CONSOLE_COLOR_PURPLE_BRIGHT);   // Default is Right Red
 
-```markdown
-Syntax highlighted code block
+        // Leaving this blank will result in the log file being created in the same folder as the jar.
+        // See javadocs for other constructors.
+        Logger exampleLogger = new Logger("");
+        for (int i = 0; i < 100; i++) {
+            // Logs to normal out.
+            Logger.log(i);
+        }
 
-# Header 1
-## Header 2
-### Header 3
+        // This will log everything in console until now.
+        exampleLogger.logConsole();
 
-- Bulleted
-- List
+        for (int i = 0; i < 100; i++) {
+            // Logs to err, instead of out.
+            Logger.err(i);
+        }
 
-1. Numbered
-2. List
+        // Logs console, and alerts the user that an error has occurred.
+        exampleLogger.dumpConsole();
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
+        /*
+         * Log only one PrintStream
+         */
+        // This is an example for only logging error output.
+        // You can replace System.err with any PrintStream you wish to log.
+        Logger errorLogger = new Logger("", true, System.err);
+        for (int i = 0; i < 100; i++) {
+            Logger.err(i);
+        }
+        errorLogger.logConsole();
+
+
+        /*
+         * Message Panes
+         */
+        // Will show a JOptionPane to the user, displaying the message.
+        Logger.messagePane("This is a message");
+        // Same as above, although you can set the title.
+        Logger.messagePane("This is a message", "This is a title.");
+
+        // This can be done with error messages too.
+        Logger.errorPane("This is a message");
+        Logger.errorPane("This is a message", "This is a title.");
+
+
+        /*
+         * Log only certain sections of code.
+         */
+        Logger example2 = new Logger("", false);
+        example2.stopCapture(); // Capturing is started at object instantiation
+        doSomething();
+        example2.startCapture();
+        doSomethingElse();
+        // Only things printed by doSomethingElse() will be logged.
+        // Nothing from doSomething() will appear in the log.
+        example2.logConsole();
+         
+
+        /*
+         * There's a lot more to this logger than just these.
+         * Check out the java docs, or source code, to see what else is possible.
+         */
+    }
+
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+## Example Output
+Example of all logger types:  
+![logger types](https://raw.githubusercontent.com/MalTheLegend104/simple-logger/main/readme-assets/log_types.png)
 
-### Jekyll Themes
+Example of a log file:  
+![log file](https://raw.githubusercontent.com/MalTheLegend104/simple-logger/main/readme-assets/logger-logconsole.jpg)  
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/MalTheLegend104/simple-logger/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Example of `Logger.errorPane()`:  
+![logger error pane](https://raw.githubusercontent.com/MalTheLegend104/simple-logger/main/readme-assets/logger-errorpane.jpg)  
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## JavaDocs
+The javadocs can be downloaded in this projects [releases.](https://github.com/MalTheLegend104/simple-logger/releases/latest)
+> Every single method and field that is usable is documented.  
+If you wish to add to this project, please do me a favor and add javadocs for anything you implement.
