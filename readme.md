@@ -75,7 +75,8 @@ public static void main(String[] args) {
         doSomething();
         example2.startCapture();
         doSomethingElse();
-        // Only things printed by doSomethingElse() will be logged nothing from doSomething() will appear in the log.
+        // Only things printed by doSomethingElse() will be logged.
+        // Nothing from doSomething() will appear in the log.
         example2.logConsole();
          
 
