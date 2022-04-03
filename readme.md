@@ -21,6 +21,17 @@ public static void main(String[] args) {
         // You can specify what way you want the time to appear in console.
         Logger.setDateTimeFormat(Logger.HOUR_MINUTE_SECOND_12H);
 
+        // All 4 types available to log
+        Logger.warn("this is a warning");
+        Logger.info("this is an info message");
+        Logger.log("this is a message");
+        Logger.err("this is an error");
+        
+        // You can set the colors for each individually.
+        Logger.setWarnColor(Logger.CONSOLE_COLOR_BLACK_BRIGHT);     // Default is Bright Yellow
+        Logger.setInfoColor(Logger.CONSOLE_COLOR_BLUE);             // Default is Bright Cyan
+        Logger.setNormalColor(Logger.CONSOLE_COLOR_GREEN_BRIGHT);   // Default is Bright White
+        Logger.setErrorColor(Logger.CONSOLE_COLOR_PURPLE_BRIGHT);   // Default is Right Red
 
         // Leaving this blank will result in the log file being created in the same folder as the jar.
         // See javadocs for other constructors.
@@ -89,11 +100,8 @@ public static void main(String[] args) {
 ```
 
 ## Example Output
-Example of `Logger.log()`:  
-![logger log()](https://raw.githubusercontent.com/MalTheLegend104/simple-logger/main/readme-assets/logger-log.jpg)  
-
-Example of `Logger.err()`:  
-![logger err](https://raw.githubusercontent.com/MalTheLegend104/simple-logger/main/readme-assets/logger-err.jpg)  
+Example of all logger types:  
+![logger types](https://raw.githubusercontent.com/MalTheLegend104/simple-logger/main/readme-assets/log_types.png);
 
 Example of a log file:  
 ![log file](https://raw.githubusercontent.com/MalTheLegend104/simple-logger/main/readme-assets/logger-logconsole.jpg)  

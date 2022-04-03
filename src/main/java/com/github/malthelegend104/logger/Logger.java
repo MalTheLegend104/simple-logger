@@ -94,6 +94,96 @@ public class Logger {
      */
     public static final byte DAY_MONTH_YEAR_HOUR_MINUTE_SECOND_12H = 13;
 
+
+    // Console Colors
+    /**
+     * Passed into a setColor method to set the output to black
+     * @see Logger#setNormalColor
+     */
+    public static final byte CONSOLE_COLOR_BLACK = 0;
+    /**
+     * Passed into a setColor method to set the output to red
+     * @see Logger#setNormalColor
+     */
+    public static final byte CONSOLE_COLOR_RED = 1;
+    /**
+     * Passed into a setColor method to set the output to green
+     * @see Logger#setNormalColor
+     */
+    public static final byte CONSOLE_COLOR_GREEN = 2;
+    /**
+     * Passed into a setColor method to set the output to yellow
+     * @see Logger#setNormalColor
+     */
+    public static final byte CONSOLE_COLOR_YELLOW = 3;
+    /**
+     * Passed into a setColor method to set the output to blue
+     * @see Logger#setNormalColor
+     */
+    public static final byte CONSOLE_COLOR_BLUE = 4;
+    /**
+     * Passed into a setColor method to set the output to purple
+     * @see Logger#setNormalColor
+     */
+    public static final byte CONSOLE_COLOR_PURPLE = 5;
+    /**
+     * Passed into a setColor method to set the output to cyan
+     * @see Logger#setNormalColor
+     */
+    public static final byte CONSOLE_COLOR_CYAN = 6;
+    /**
+     * Passed into a setColor method to set the output to white
+     * @see Logger#setNormalColor
+     */
+    public static final byte CONSOLE_COLOR_WHITE = 7;
+    /**
+     * Passed into a setColor method to set the output to bright black
+     * @see Logger#setNormalColor
+     */
+    public static final byte CONSOLE_COLOR_BLACK_BRIGHT = 8;
+    /**
+     * Passed into a setColor method to set the output to bright red
+     * @see Logger#setNormalColor
+     */
+    public static final byte CONSOLE_COLOR_RED_BRIGHT = 9;
+    /**
+     * Passed into a setColor method to set the output to bright green
+     * @see Logger#setNormalColor
+     */
+    public static final byte CONSOLE_COLOR_GREEN_BRIGHT = 10;
+    /**
+     * Passed into a setColor method to set the output to bright yellow
+     * @see Logger#setNormalColor
+     */
+    public static final byte CONSOLE_COLOR_YELLOW_BRIGHT = 11;
+    /**
+     * Passed into a setColor method to set the output to bright blue
+     * @see Logger#setNormalColor
+     */
+    public static final byte CONSOLE_COLOR_BLUE_BRIGHT = 12;
+    /**
+     * Passed into a setColor method to set the output to bright purple
+     * @see Logger#setNormalColor
+     */
+    public static final byte CONSOLE_COLOR_PURPLE_BRIGHT = 13;
+    /**
+     * Passed into a setColor method to set the output to bright cyan
+     * @see Logger#setNormalColor
+     */
+    public static final byte CONSOLE_COLOR_CYAN_BRIGHT = 14;
+    /**
+     * Passed into a setColor method to set the output to bright white
+     * @see Logger#setNormalColor
+     */
+    public static final byte CONSOLE_COLOR_WHITE_BRIGHT = 15;
+
+    // Console colors
+    private static final String CONSOLE_COLOR_RESET = "\u001B[0m";
+    private static String currentWarn = "\u001B[0;93m"; // Default to yellow
+    private static String currentNormal = "\033[0;97m";
+    private static String currentError = "\033[0;91m";
+    private static String currentInfo = "\033[0;96m";
+
     // Other final variables
     private static final JFrame messagePaneParent = new JFrame();
 
@@ -141,6 +231,179 @@ public class Logger {
         setDateTimeFormat(timeFormat);
     }
 
+    /**
+     * Set the color for {@link Logger#warn}
+     * @param warnColor {@code byte} corresponding to the wanted color.
+     * @see Logger#CONSOLE_COLOR_YELLOW_BRIGHT
+     */
+    public static void setWarnColor(byte warnColor){
+        if (warnColor == 0){
+            currentWarn = "\u001B[30m"; // Black
+        } else if (warnColor == 1){
+            currentWarn = "\u001B[31m";
+        } else if (warnColor == 2){
+            currentWarn = "\u001B[32m";
+        } else if (warnColor == 3){
+            currentWarn = "\u001B[33m";
+        } else if (warnColor == 4){
+            currentWarn = "\u001B[34m";
+        } else if (warnColor == 5){
+            currentWarn = "\u001B[35m";
+        } else if (warnColor == 6){
+            currentWarn = "\u001B[36m";
+        } else if (warnColor == 7){
+            currentWarn = "\u001B[37m";
+        } else if (warnColor == 8){
+            currentWarn = "\033[0;90m";
+        } else if (warnColor == 9){
+            currentWarn = "\033[0;91m";
+        } else if (warnColor == 10){
+            currentWarn = "\033[0;92m";
+        } else if (warnColor == 11){
+            currentWarn = "\033[0;93m";
+        } else if (warnColor == 12){
+            currentWarn = "\033[0;94m";
+        } else if (warnColor == 13){
+            currentWarn = "\033[0;95m";
+        } else if (warnColor == 14){
+            currentWarn = "\033[0;96m";
+        } else if (warnColor == 15){
+            currentWarn = "\033[0;97m";
+        } else {
+            setWarnColor(CONSOLE_COLOR_YELLOW_BRIGHT);
+        }
+    }
+
+    /**
+     * Set the color for {@link Logger#log}
+     * @param normalColor {@code byte} corresponding to the wanted color.
+     * @see Logger#CONSOLE_COLOR_WHITE_BRIGHT
+     */
+    public static void setNormalColor(byte normalColor){
+        if (normalColor == 0){
+            currentNormal = "\u001B[30m"; // Black
+        } else if (normalColor == 1){
+            currentNormal = "\u001B[31m";
+        } else if (normalColor == 2){
+            currentNormal = "\u001B[32m";
+        } else if (normalColor == 3){
+            currentNormal = "\u001B[33m";
+        } else if (normalColor == 4){
+            currentNormal = "\u001B[34m";
+        } else if (normalColor == 5){
+            currentNormal = "\u001B[35m";
+        } else if (normalColor == 6){
+            currentNormal = "\u001B[36m";
+        } else if (normalColor == 7){
+            currentNormal = "\u001B[37m";
+        } else if (normalColor == 8){
+            currentNormal = "\033[0;90m";
+        } else if (normalColor == 9){
+            currentNormal = "\033[0;91m";
+        } else if (normalColor == 10){
+            currentNormal = "\033[0;92m";
+        } else if (normalColor == 11){
+            currentNormal = "\033[0;93m";
+        } else if (normalColor == 12){
+            currentNormal = "\033[0;94m";
+        } else if (normalColor == 13){
+            currentNormal = "\033[0;95m";
+        } else if (normalColor == 14){
+            currentNormal = "\033[0;96m";
+        } else if (normalColor == 15){
+            currentNormal = "\033[0;97m";
+        } else {
+            setNormalColor(CONSOLE_COLOR_WHITE_BRIGHT);
+        }
+    }
+
+    /**
+     * Set the color for {@link Logger#err}
+     * @param errorColor {@code byte} corresponding to the wanted color.
+     * @see Logger#CONSOLE_COLOR_RED_BRIGHT
+     */
+    public static void setErrorColor(byte errorColor){
+        if (errorColor == 0){
+            currentError = "\u001B[30m"; // Black
+        } else if (errorColor == 1){
+            currentError = "\u001B[31m";
+        } else if (errorColor == 2){
+            currentError = "\u001B[32m";
+        } else if (errorColor == 3){
+            currentError = "\u001B[33m";
+        } else if (errorColor == 4){
+            currentError = "\u001B[34m";
+        } else if (errorColor == 5){
+            currentError = "\u001B[35m";
+        } else if (errorColor == 6){
+            currentError = "\u001B[36m";
+        } else if (errorColor == 7){
+            currentError = "\u001B[37m";
+        } else if (errorColor == 8){
+            currentError = "\033[0;90m";
+        } else if (errorColor == 9){
+            currentError = "\033[0;91m";
+        } else if (errorColor == 10){
+            currentError = "\033[0;92m";
+        } else if (errorColor == 11){
+            currentError = "\033[0;93m";
+        } else if (errorColor == 12){
+            currentError = "\033[0;94m";
+        } else if (errorColor == 13){
+            currentError = "\033[0;95m";
+        } else if (errorColor == 14){
+            currentError = "\033[0;96m";
+        } else if (errorColor == 15){
+            currentError = "\033[0;97m";
+        } else {
+            setErrorColor(CONSOLE_COLOR_RED_BRIGHT);
+        }
+    }
+
+    /**
+     * Set the color for {@link Logger#warn}
+     * @param infoColor {@code byte} corresponding to the wanted color.
+     * @see Logger#CONSOLE_COLOR_CYAN_BRIGHT
+     */
+    public static void setInfoColor(byte infoColor){
+        if (infoColor == 0){
+            currentInfo = "\u001B[30m"; // Black
+        } else if (infoColor == 1){
+            currentInfo = "\u001B[31m";
+        } else if (infoColor == 2){
+            currentInfo = "\u001B[32m";
+        } else if (infoColor == 3){
+            currentInfo = "\u001B[33m";
+        } else if (infoColor == 4){
+            currentInfo = "\u001B[34m";
+        } else if (infoColor == 5){
+            currentInfo = "\u001B[35m";
+        } else if (infoColor == 6){
+            currentInfo = "\u001B[36m";
+        } else if (infoColor == 7){
+            currentInfo = "\u001B[37m";
+        } else if (infoColor == 8){
+            currentInfo = "\033[0;90m";
+        } else if (infoColor == 9){
+            currentInfo = "\033[0;91m";
+        } else if (infoColor == 10){
+            currentInfo = "\033[0;92m";
+        } else if (infoColor == 11){
+            currentInfo = "\033[0;93m";
+        } else if (infoColor == 12){
+            currentInfo = "\033[0;94m";
+        } else if (infoColor == 13){
+            currentInfo = "\033[0;95m";
+        } else if (infoColor == 14){
+            currentInfo = "\033[0;96m";
+        } else if (infoColor == 15){
+            currentInfo = "\033[0;97m";
+        } else {
+            setInfoColor(CONSOLE_COLOR_CYAN_BRIGHT);
+        }
+    }
+
+
     private static void setTimeFormat(){
         if (timeFormat == 0){
             dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
@@ -187,73 +450,215 @@ public class Logger {
      * @param message {@code String} that you want to output to console.
      */
     public static void log(String message){
-        System.out.println('[' + getTime() + "]\t" + message);
+        System.out.println(currentNormal + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
     }
     /**
      * Log given object to console.
      * @param message {@code Object} that you want to output to console.
      */
     public static void log(Object message){
-        System.out.println('[' + getTime() + "]\t" + message);
+        System.out.println(currentNormal + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
     }
-
     /**
      * Log given primitive to console.
      * @param message {@code int} that you want to output to console.
      */
     public static void log(int message){
-        System.out.println('[' + getTime() + "]\t" + message);
+        System.out.println(currentNormal + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
     }
     /**
      * Log given primitive to console.
      * @param message {@code double} that you want to output to console.
      */
     public static void log(double message){
-        System.out.println('[' + getTime() + "]\t" + message);
+        System.out.println(currentNormal + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
     }
     /**
      * Log given primitive to console.
      * @param message {@code char} that you want to output to console.
      */
     public static void log(char message){
-        System.out.println('[' + getTime() + "]\t" + message);
+        System.out.println(currentNormal + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
     }
     /**
      * Log given primitive to console.
      * @param message {@code byte} that you want to output to console.
      */
     public static void log(byte message){
-        System.out.println('[' + getTime() + "]\t" + message);
+        System.out.println(currentNormal + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
     }
     /**
      * Log given primitive to console.
      * @param message {@code short} that you want to output to console.
      */
     public static void log(short message){
-        System.out.println('[' + getTime() + "]\t" + message);
+        System.out.println(currentNormal + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
     }
     /**
      * Log given primitive to console.
      * @param message {@code long} that you want to output to console.
      */
     public static void log(long message){
-        System.out.println('[' + getTime() + "]\t" + message);
+        System.out.println(currentNormal + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
     }
     /**
      * Log given primitive to console.
      * @param message {@code float} that you want to output to console.
      */
     public static void log(float message){
-        System.out.println('[' + getTime() + "]\t" + message);
+        System.out.println(currentNormal + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
     }
     /**
      * Log given primitive to console.
      * @param message {@code boolean} that you want to output to console.
      */
     public static void log(boolean message){
-        System.out.println('[' + getTime() + "]\t" + message);
+        System.out.println(currentNormal + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
     }
 
+    // Logs for warnings
+    /**
+     * Log given String to console, using the set warning color.
+     * @param message {@code String} that you want to output to console.
+     */
+    public static void warn(String message){
+        System.out.println(currentWarn + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
+    }
+    /**
+     * Log given object to console, using the set warning color.
+     * @param message {@code Object} that you want to output to console.
+     */
+    public static void warn(Object message){
+        System.out.println(currentWarn + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
+    }
+    /**
+     * Log given primitive to console, using the set warning color.
+     * @param message {@code int} that you want to output to console.
+     */
+    public static void warn(int message){
+        System.out.println(currentWarn + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
+    }
+    /**
+     * Log given primitive to console, using the set warning color.
+     * @param message {@code double} that you want to output to console.
+     */
+    public static void warn(double message){
+        System.out.println(currentWarn + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
+    }
+    /**
+     * Log given primitive to console, using the set warning color.
+     * @param message {@code char} that you want to output to console.
+     */
+    public static void warn(char message){
+        System.out.println(currentWarn + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
+    }
+    /**
+     * Log given primitive to console, using the set warning color.
+     * @param message {@code byte} that you want to output to console.
+     */
+    public static void warn(byte message){
+        System.out.println(currentWarn + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
+    }
+    /**
+     * Log given primitive to console, using the set warning color.
+     * @param message {@code short} that you want to output to console.
+     */
+    public static void warn(short message){
+        System.out.println(currentWarn + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
+    }
+    /**
+     * Log given primitive to console, using the set warning color.
+     * @param message {@code long} that you want to output to console.
+     */
+    public static void warn(long message){
+        System.out.println(currentWarn + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
+    }
+    /**
+     * Log given primitive to console, using the set warning color.
+     * @param message {@code float} that you want to output to console.
+     */
+    public static void warn(float message){
+        System.out.println(currentWarn + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
+    }
+    /**
+     * Log given primitive to console, using the set warning color.
+     * @param message {@code boolean} that you want to output to console.
+     */
+    public static void warn(boolean message){
+        System.out.println(currentWarn + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
+    }
+
+    // Logs for Info
+    /**
+     * Log given String to console, using the set info color.
+     * @param message {@code String} that you want to output to console.
+     */
+    public static void info(String message){
+        System.out.println(currentInfo + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
+    }
+    /**
+     * Log given object to console, using the set info color.
+     * @param message {@code Object} that you want to output to console.
+     */
+    public static void info(Object message){
+        System.out.println(currentInfo + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
+    }
+    /**
+     * Log given primitive to console, using the set info color.
+     * @param message {@code int} that you want to output to console.
+     */
+    public static void info(int message){
+        System.out.println(currentInfo + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
+    }
+    /**
+     * Log given primitive to console, using the set info color.
+     * @param message {@code double} that you want to output to console.
+     */
+    public static void info(double message){
+        System.out.println(currentInfo + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
+    }
+    /**
+     * Log given primitive to console, using the set info color.
+     * @param message {@code char} that you want to output to console.
+     */
+    public static void info(char message){
+        System.out.println(currentInfo + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
+    }
+    /**
+     * Log given primitive to console, using the set info color.
+     * @param message {@code byte} that you want to output to console.
+     */
+    public static void info(byte message){
+        System.out.println(currentInfo + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
+    }
+    /**
+     * Log given primitive to console, using the set info color.
+     * @param message {@code short} that you want to output to console.
+     */
+    public static void info(short message){
+        System.out.println(currentInfo + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
+    }
+    /**
+     * Log given primitive to console, using the set info color.
+     * @param message {@code long} that you want to output to console.
+     */
+    public static void info(long message){
+        System.out.println(currentInfo + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
+    }
+    /**
+     * Log given primitive to console, using the set info color.
+     * @param message {@code float} that you want to output to console.
+     */
+    public static void info(float message){
+        System.out.println(currentInfo + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
+    }
+    /**
+     * Log given primitive to console, using the set info color.
+     * @param message {@code boolean} that you want to output to console.
+     */
+    public static void info(boolean message){
+        System.out.println(currentInfo + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
+    }
 
     // Logs for error out.
     /**
@@ -261,73 +666,71 @@ public class Logger {
      * @param message {@code String} that you want to output to console.
      */
     public static void err(String message){
-        System.err.println('[' + getTime() + "]\t" + message);
+        System.err.println(currentError + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
     }
     /**
      * Log given object to console, using stderr.
      * @param message {@code Object} that you want to output to console.
      */
     public static void err(Object message){
-        System.err.println('[' + getTime() + "]\t" + message);
+        System.err.println(currentError + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
     }
     /**
      * Log given primitive to console, using stderr.
      * @param message {@code int} that you want to output to console.
      */
     public static void err(int message){
-        System.out.println('[' + getTime() + "]\t" + message);
+        System.err.println(currentError + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
     }
     /**
      * Log given primitive to console, using stderr.
      * @param message {@code double} that you want to output to console.
      */
     public static void err(double message){
-        System.out.println('[' + getTime() + "]\t" + message);
+        System.err.println(currentError + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
     }
     /**
      * Log given primitive to console, using stderr.
      * @param message {@code char} that you want to output to console.
      */
     public static void err(char message){
-        System.out.println('[' + getTime() + "]\t" + message);
+        System.err.println(currentError + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
     }
     /**
      * Log given primitive to console, using stderr.
      * @param message {@code byte} that you want to output to console.
      */
     public static void err(byte message){
-        System.out.println('[' + getTime() + "]\t" + message);
+        System.err.println(currentError + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
     }
     /**
      * Log given primitive to console, using stderr.
      * @param message {@code short} that you want to output to console.
      */
     public static void err(short message){
-        System.out.println('[' + getTime() + "]\t" + message);
+        System.err.println(currentError + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
     }
     /**
      * Log given primitive to console, using stderr.
      * @param message {@code long} that you want to output to console.
      */
     public static void err(long message){
-        System.out.println('[' + getTime() + "]\t" + message);
+        System.err.println(currentError + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
     }
     /**
      * Log given primitive to console, using stderr.
      * @param message {@code float} that you want to output to console.
      */
     public static void err(float message){
-        System.out.println('[' + getTime() + "]\t" + message);
+        System.err.println(currentError + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
     }
     /**
      * Log given primitive to console, using stderr.
      * @param message {@code boolean} that you want to output to console.
      */
     public static void err(boolean message){
-        System.out.println('[' + getTime() + "]\t" + message);
+        System.err.println(currentError + '[' + getTime() + "]\t" + message + CONSOLE_COLOR_RESET);
     }
-
-
 
 
     /**
