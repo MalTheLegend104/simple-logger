@@ -3,8 +3,8 @@ This is meant to be a general use, easy to use logger.
 This was mainly meant to just be used by me and a few fellow programmers, 
 but this is a fairly lightweight logger that I wanted to make public.
 
-### Information
-This logger has no dependencies and was built using 
+>### Information
+>This logger has no dependencies and was built using 
 [Java 18](https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html). <br>
 This could very likely be implemented, without error, in older java versions, although nothing is guaranteed.
 
