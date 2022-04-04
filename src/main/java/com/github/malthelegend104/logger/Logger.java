@@ -408,31 +408,31 @@ public class Logger {
         if (timeFormat == 0){
             dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
         } else if (timeFormat == 1){
-            dtf = DateTimeFormatter.ofPattern("hh:mm:ss aa");
+            dtf = DateTimeFormatter.ofPattern("hh:mm:ss a");
         } else if (timeFormat == 2){
             dtf = DateTimeFormatter.ofPattern("MM/dd hh:mm:ss");
         } else if (timeFormat == 3){
-            dtf = DateTimeFormatter.ofPattern("MM/dd hh:mm:ss aa");
+            dtf = DateTimeFormatter.ofPattern("MM/dd hh:mm:ss a");
         } else if (timeFormat == 4){
             dtf = DateTimeFormatter.ofPattern("dd/MM hh:mm:ss");
         } else if (timeFormat == 5){
-            dtf = DateTimeFormatter.ofPattern("dd/MM hh:mm:ss aa");
+            dtf = DateTimeFormatter.ofPattern("dd/MM hh:mm:ss a");
         } else if (timeFormat == 6){
             dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm:ss");
         } else if (timeFormat == 7){
-            dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm:ss aa");
+            dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm:ss a");
         } else if (timeFormat == 8){
             dtf = DateTimeFormatter.ofPattern("yyyy/dd/MM hh:mm:ss");
         } else if (timeFormat == 9){
-            dtf = DateTimeFormatter.ofPattern("yyyy/dd/MM hh:mm:ss aa");
+            dtf = DateTimeFormatter.ofPattern("yyyy/dd/MM hh:mm:ss a");
         } else if (timeFormat == 10){
             dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm:ss");
         } else if (timeFormat == 11){
-            dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm:ss aa");
+            dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm:ss a");
         } else if (timeFormat == 12){
             dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss");
         } else if (timeFormat == 13){
-            dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss aa");
+            dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss a");
         }
     }
 
@@ -906,10 +906,18 @@ public class Logger {
                 }
                 FileWriter writer = new FileWriter(file);
                 writer.write("------Standard Out------\r\n");
-                writer.write(outputCapturer.getBuffer());
+
+                writer.write(
+                        outputCapturer.getBuffer()
+                                .replace(currentNormal, "")
+                                .replace(currentInfo, "")
+                                .replace(currentWarn, "")
+                                .replace(CONSOLE_COLOR_RESET, "")
+                );
+
                 if (bothStreams){
                     writer.write("\r\n\r\n\r\n------Error Out------\r\n");
-                    writer.write(errCapturer.getBuffer());
+                    writer.write(errCapturer.getBuffer().replace(currentError, "").replace(CONSOLE_COLOR_RESET, ""));
                 }
                 writer.close();
             } catch (IOException e) {
