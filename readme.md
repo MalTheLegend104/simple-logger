@@ -8,6 +8,17 @@ but this is a fairly lightweight logger that I wanted to make public.
 [Java 18](https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html). <br>
 This could very likely be implemented, without error, in older java versions, although nothing is guaranteed.
 
+## Include
+To use this in your project add the following to your dependencies in `pom.xml`  
+```xml
+<dependency>
+  <groupId>com.github.malthelegend104</groupId>
+  <artifactId>logger</artifactId>
+  <version>1.0</version>
+</dependency> 
+```  
+
+
 ## Usage
 Methods and constructors not detailed below can be found in the [javadocs.](#javadocs)
 
