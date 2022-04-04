@@ -42,7 +42,7 @@ public static void main(String[] args) {
         Logger.setWarnColor(Logger.CONSOLE_COLOR_BLACK_BRIGHT);     // Default is Bright Yellow
         Logger.setInfoColor(Logger.CONSOLE_COLOR_BLUE);             // Default is Bright Cyan
         Logger.setNormalColor(Logger.CONSOLE_COLOR_GREEN_BRIGHT);   // Default is Bright White
-        Logger.setErrorColor(Logger.CONSOLE_COLOR_PURPLE_BRIGHT);   // Default is Right Red
+        Logger.setErrorColor(Logger.CONSOLE_COLOR_PURPLE_BRIGHT);   // Default is Bright Red
 
         // Leaving this blank will result in the log file being created in the same folder as the jar.
         // See javadocs for other constructors.
