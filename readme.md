@@ -9,7 +9,11 @@ but this is a fairly lightweight logger that I wanted to make public.
 This could very likely be implemented, without error, in older java versions, although nothing is guaranteed.
 
 ## Include
-To use this in your project add the following to your dependencies in `pom.xml`  
+- Simply copy `Logger.java` into your project.  
+OR
+- Add the following to your dependencies in `pom.xml`  
+    > This is just in theory. I never really bothered to properly set this up, and I think that any end user needs to configure maven to actually get the package from github.
+    > just do it the other way, it's simpler anyway.
 ```xml
 <dependency>
   <groupId>com.github.malthelegend104</groupId>
