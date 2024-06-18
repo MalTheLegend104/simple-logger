@@ -12,7 +12,7 @@ This could very likely be implemented, without error, in older java versions, al
 - Simply copy `Logger.java` into your project.  
 OR
 - View `packages` on the right side, and follow instructions.
-- This is less maintained than the other way, and the other way is likely easier in the long run.
+  - This is less maintained than the other way, and the other way is likely easier in the long run.
 
 ## Usage
 Methods and constructors not detailed below can be found in the [javadocs.](#javadocs)
