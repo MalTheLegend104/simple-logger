@@ -11,17 +11,8 @@ This could very likely be implemented, without error, in older java versions, al
 ## Include
 - Simply copy `Logger.java` into your project.  
 OR
-- Add the following to your dependencies in `pom.xml`  
-    > This is just in theory. I never really bothered to properly set this up, and I think that any end user needs to configure maven to actually get the package from github.
-    > just do it the other way, it's simpler anyway.
-```xml
-<dependency>
-  <groupId>com.github.malthelegend104</groupId>
-  <artifactId>logger</artifactId>
-  <version>1.0</version>
-</dependency> 
-```  
-
+- View `packages` on the right side, and follow instructions.
+- This is less maintained than the other way, and the other way is likely easier in the long run.
 
 ## Usage
 Methods and constructors not detailed below can be found in the [javadocs.](#javadocs)
